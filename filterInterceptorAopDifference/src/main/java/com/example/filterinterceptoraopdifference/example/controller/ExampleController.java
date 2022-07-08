@@ -13,7 +13,7 @@ public class ExampleController {
     @GetMapping("/example")
     public ResponseEntity<?> getExample(){
         ExampleVO exampleVO = new ExampleVO();
-        exampleVO.setName("taehyun");
+        exampleVO.setName("kth");
         exampleVO.setAge(11L);
         return ResponseEntity.status(HttpStatus.OK).body(exampleVO);
     }

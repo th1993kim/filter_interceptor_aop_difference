@@ -1,6 +1,6 @@
 package com.example.filterinterceptoraopdifference.example.vo;
 
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
