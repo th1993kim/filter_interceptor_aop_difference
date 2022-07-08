@@ -30,11 +30,15 @@ public class CustomFilter implements Filter {
         String line = "";
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
         while((line = br.readLine()) !=null){
+            if(line.indexOf(" ")>0){
+                sb.append("\n");
+            }
             sb.append(line);
         }
         Iterator<String> names = attributeNames.asIterator();
         while(names.hasNext()){
             String next = names.next();
+
             log.info("next param = {}",next);
         }
         log.info("body ={}",sb.toString());
