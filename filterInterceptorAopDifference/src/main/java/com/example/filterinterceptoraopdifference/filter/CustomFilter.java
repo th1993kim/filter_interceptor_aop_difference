@@ -12,7 +12,6 @@ import java.util.Enumeration;
 import java.util.Iterator;
 
 @Slf4j
-@Component
 public class CustomFilter implements Filter {
 
     @Override
