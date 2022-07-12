@@ -16,12 +16,12 @@ public class CustomFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-      log.info("Servlet Filter Init");
+      log.info("필터 init메서드 호출");
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        log.info("filter 시작 ================Start ===============");
+        log.info("필터 doFilter메서드 호출");
 
         Enumeration<String> attributeNames = request.getAttributeNames();
         ServletInputStream inputStream = request.getInputStream();
@@ -40,15 +40,11 @@ public class CustomFilter implements Filter {
 
             log.info("next param = {}",next);
         }
-        log.info("body ={}",sb.toString());
-        log.info("content type = {}",request.getContentType());
-        log.info("filter 종료 ===============END ================");
-
         chain.doFilter(request,response);
     }
 
     @Override
     public void destroy() {
-        log.info("Servlet Filter Destroy");
+        log.info("필터 detroy메서드 호출");
     }
 }
