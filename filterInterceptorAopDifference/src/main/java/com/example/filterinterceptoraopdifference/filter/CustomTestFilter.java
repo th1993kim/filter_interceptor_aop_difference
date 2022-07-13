@@ -1,7 +1,8 @@
 package com.example.filterinterceptoraopdifference.filter;
 
+import com.example.filterinterceptoraopdifference.example.log.ExampleLog;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -11,18 +12,26 @@ import java.io.InputStreamReader;
 import java.util.Enumeration;
 import java.util.Iterator;
 
+@Component
 @Slf4j
-public class CustomFilter implements Filter {
+@RequiredArgsConstructor
+public class CustomTestFilter implements Filter {
+
+    private final ExampleLog exampleLog;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
       log.info("필터 init메서드 호출");
+
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        log.info("필터 doFilter메서드 호출");
 
+        log.info("필터 doFilter메서드 호출");
+        log.info("필터 doFilter메서드 내의 exampleLog Bean 메서드 호출 시작 =====");
+        exampleLog.testLog();
+        log.info("필터 doFilter메서드 내의 exampleLog Bean 메서드 호출 끝 =====");
         Enumeration<String> attributeNames = request.getAttributeNames();
         ServletInputStream inputStream = request.getInputStream();
         StringBuilder sb  = new StringBuilder();
